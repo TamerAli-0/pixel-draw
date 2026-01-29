@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelDraw — Pixel Art Canvas</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Toolbar -->
+    <header class="toolbar">
+      <div class="logo">
+        <i class="fas fa-paintbrush"></i>
+        <span>PixelDraw</span>
+      </div>
+      <div class="tool-group">
+        <button class="tool-btn active" data-tool="draw" title="Draw (D)"><i class="fas fa-pen"></i></button>
+        <button class="tool-btn" data-tool="erase" title="Eraser (E)"><i class="fas fa-eraser"></i></button>
+        <button class="tool-btn" data-tool="fill" title="Fill Bucket (F)"><i class="fas fa-fill-drip"></i></button>
+        <button class="tool-btn" data-tool="pick" title="Color Picker (P)"><i class="fas fa-eye-dropper"></i></button>
+      </div>
+      <div class="tool-group">
+        <button class="tool-btn" id="undoBtn" title="Undo (Ctrl+Z)"><i class="fas fa-undo"></i></button>
+        <button class="tool-btn" id="redoBtn" title="Redo (Ctrl+Y)"><i class="fas fa-redo"></i></button>
+      </div>
+      <div class="tool-group">
+        <button class="tool-btn" id="clearBtn" title="Clear Canvas"><i class="fas fa-trash"></i></button>
+        <button class="tool-btn" id="gridToggle" title="Toggle Grid (G)"><i class="fas fa-border-all"></i></button>
+        <button class="tool-btn" id="exportBtn" title="Export PNG"><i class="fas fa-download"></i></button>
+      </div>
+      <div class="size-selector">
+        <label>Grid</label>
+        <select id="gridSize">
+          <option value="16">16x16</option>
+          <option value="24">24x24</option>
+          <option value="32" selected>32x32</option>
+          <option value="48">48x48</option>
+          <option value="64">64x64</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <!-- Color Palette -->
+      <aside class="sidebar">
+        <div class="color-preview">
+          <div class="preview-current" id="currentColor" style="background:#e8e8e8;"></div>
+          <input type="color" id="colorPicker" value="#e8e8e8">
+        </div>
+        <div class="palette" id="palette"></div>
+        <div class="recent-colors">
+          <span class="label">Recent</span>
+          <div class="recent-list" id="recentColors"></div>
+        </div>
+        <!-- Gallery -->
+        <div class="gallery-section">
+          <span class="label">Saved</span>
+          <button class="save-btn" id="saveBtn"><i class="fas fa-plus"></i> Save</button>
+          <div class="gallery-list" id="galleryList"></div>
+        </div>
+      </aside>
+
+      <!-- Canvas Container -->
+      <div class="canvas-container" id="canvasContainer">
+        <div class="canvas-wrapper" id="canvasWrapper">
+          <canvas id="pixelCanvas"></canvas>
+          <canvas id="gridCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Built by <a href="https://github.com/TamerAli-0" target="_blank">Tamer Altaweel</a> &mdash; Keyboard: D=Draw E=Erase F=Fill P=Pick G=Grid</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -27,4 +27,3 @@ cd pixel-draw
 
 ## Author
 
-Built by [Tamer Altaweel](https://github.com/TamerAli-0)
